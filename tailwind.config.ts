@@ -19,7 +19,19 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				golos: ['Golos Text', 'sans-serif'],
+				ibm: ['IBM Plex Sans', 'sans-serif'],
+			},
 			colors: {
+				'blue-deep': '#0f2d6b',
+				'blue-main': '#1a56db',
+				'blue-mid': '#2f7cf6',
+				'blue-light': '#93c5fd',
+				'blue-pale': '#dbeafe',
+				'blue-ice': '#f0f6ff',
+				'mid': '#334d6e',
+				'light-custom': '#6b8fb4',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

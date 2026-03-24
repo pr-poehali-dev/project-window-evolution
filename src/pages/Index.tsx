@@ -79,6 +79,62 @@ const TIMELINE = [
   },
 ];
 
+const WIN_VERSIONS = [
+  { name: "1.0", year: "1985", emoji: "🖥️", color: "#6b8fb4", rating: 2, desc: "Первая оболочка" },
+  { name: "3.x", year: "1990", emoji: "💾", color: "#5a7fa8", rating: 3, desc: "Массовый рынок" },
+  { name: "95", year: "1995", emoji: "🪟", color: "#1a56db", rating: 5, desc: "Революция!" },
+  { name: "98", year: "1998", emoji: "🌐", color: "#1a56db", rating: 4, desc: "Интернет-эра" },
+  { name: "XP", year: "2001", emoji: "⭐", color: "#0f2d6b", rating: 5, desc: "Золотой стандарт" },
+  { name: "Vista", year: "2007", emoji: "💎", color: "#4a90d9", rating: 2, desc: "Красиво, но тяжело" },
+  { name: "7", year: "2009", emoji: "🏆", color: "#0f2d6b", rating: 5, desc: "Народная любовь" },
+  { name: "8", year: "2012", emoji: "📱", color: "#2f7cf6", rating: 2, desc: "Сенсорный провал" },
+  { name: "10", year: "2015", emoji: "🔧", color: "#1a56db", rating: 4, desc: "Windows как сервис" },
+  { name: "11", year: "2021", emoji: "✨", color: "#0f2d6b", rating: 4, desc: "Облачное будущее" },
+];
+
+const ERAS = [
+  {
+    period: "1985–1994",
+    title: "Эпоха оболочки",
+    subtitle: "Windows 1.0 — 3.x",
+    desc: "Windows существовала как надстройка над MS-DOS. Компьютер был экзотикой, интерфейс — экспериментом.",
+    icon: "Terminal",
+    img: "https://cdn.poehali.dev/projects/400a0c1e-0a40-4b4e-a3b4-a9b1f44279a3/files/a3f84d1c-905b-47bb-829b-88412238aca5.jpg",
+    accent: "#6b8fb4",
+    versions: ["1.0", "2.0", "3.0", "3.1"],
+  },
+  {
+    period: "1995–2000",
+    title: "Домашняя революция",
+    subtitle: "Windows 95, 98, ME",
+    desc: "Кнопка «Пуск» изменила мир. Компьютеры вошли в каждый дом. Интернет стал массовым явлением.",
+    icon: "Home",
+    img: "https://cdn.poehali.dev/projects/400a0c1e-0a40-4b4e-a3b4-a9b1f44279a3/files/16f39c6d-18fb-499b-8cc8-38b7e98db121.jpg",
+    accent: "#1a56db",
+    versions: ["95", "98", "ME"],
+  },
+  {
+    period: "2001–2014",
+    title: "Золотой век",
+    subtitle: "XP, Vista, 7",
+    desc: "XP объединил всех пользователей. После неудачи Vista Windows 7 стала эталоном на годы вперёд.",
+    icon: "Award",
+    img: "https://cdn.poehali.dev/projects/400a0c1e-0a40-4b4e-a3b4-a9b1f44279a3/files/a3f84d1c-905b-47bb-829b-88412238aca5.jpg",
+    accent: "#0f2d6b",
+    versions: ["XP", "Vista", "7"],
+  },
+  {
+    period: "2015–сегодня",
+    title: "Облачная эра",
+    subtitle: "Windows 10 и 11",
+    desc: "Windows превратилась в сервис. Облако, ИИ, универсальность устройств — новая философия Microsoft.",
+    icon: "Cloud",
+    img: "https://cdn.poehali.dev/projects/400a0c1e-0a40-4b4e-a3b4-a9b1f44279a3/files/5431f96d-3d5b-42ed-b249-e938752616d5.jpg",
+    accent: "#2f7cf6",
+    versions: ["8", "10", "11"],
+  },
+];
+
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -292,6 +348,57 @@ const Index = () => {
         </div>
       </section>
 
+      {/* VERSIONS INFOGRAPHIC */}
+      <section className="py-20 bg-blue-deep overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="text-blue-light text-sm font-semibold uppercase tracking-widest mb-3">
+              Инфографика
+            </div>
+            <h2 className="font-golos text-4xl font-black text-white">
+              Все версии Windows — одним взглядом
+            </h2>
+            <p className="text-blue-200 mt-3 text-sm">Популярность каждой версии по 5-балльной шкале</p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+            {WIN_VERSIONS.map((v) => (
+              <div
+                key={v.name}
+                className="group bg-white/10 hover:bg-white/20 border border-white/20 rounded-2xl p-4 text-center transition-all hover:-translate-y-1 cursor-default"
+              >
+                <div className="text-3xl mb-2">{v.emoji}</div>
+                <div className="font-golos font-black text-white text-xl leading-none">
+                  Win {v.name}
+                </div>
+                <div className="text-blue-300 text-xs mt-1 mb-3">{v.year}</div>
+                <div className="flex justify-center gap-0.5 mb-2">
+                  {[1,2,3,4,5].map((star) => (
+                    <div
+                      key={star}
+                      className="w-4 h-1.5 rounded-full transition-colors"
+                      style={{ backgroundColor: star <= v.rating ? "#93c5fd" : "rgba(255,255,255,0.15)" }}
+                    />
+                  ))}
+                </div>
+                <div className="text-blue-200 text-xs">{v.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-6 text-blue-300 text-xs">
+            <span className="flex items-center gap-2">
+              <span className="flex gap-0.5">{[1,2,3,4,5].map(s=><span key={s} className="w-3 h-1 rounded-full bg-blue-300 inline-block"/>)}</span>
+              Высокая оценка
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="flex gap-0.5">{[1,2].map(s=><span key={s} className="w-3 h-1 rounded-full bg-blue-300 inline-block"/>)}<span className="flex gap-0.5">{[3,4,5].map(s=><span key={s} className="w-3 h-1 rounded-full bg-white/20 inline-block"/>)}</span></span>
+              Низкая оценка
+            </span>
+          </div>
+        </div>
+      </section>
+
       <div className="section-divider" />
 
       {/* CHAPTERS */}
@@ -414,6 +521,65 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ERAS SECTION */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="text-blue-main text-sm font-semibold uppercase tracking-widest mb-3">
+              Четыре эпохи
+            </div>
+            <h2 className="font-golos text-4xl font-black text-blue-deep">
+              Как менялась Windows
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {ERAS.map((era) => (
+              <div
+                key={era.period}
+                className="group relative overflow-hidden rounded-2xl border border-blue-100 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="h-40 overflow-hidden relative">
+                  <img
+                    src={era.img}
+                    alt={era.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute top-3 left-3">
+                    <span
+                      className="text-white text-xs font-semibold px-2.5 py-1 rounded-full"
+                      style={{ backgroundColor: era.accent }}
+                    >
+                      {era.period}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-3 left-4">
+                    <h3 className="font-golos font-black text-white text-xl">{era.title}</h3>
+                    <p className="text-blue-200 text-xs">{era.subtitle}</p>
+                  </div>
+                </div>
+
+                <div className="p-5 bg-white">
+                  <p className="text-mid text-sm leading-relaxed mb-4">{era.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {era.versions.map((v) => (
+                      <span
+                        key={v}
+                        className="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-pale"
+                        style={{ color: era.accent }}
+                      >
+                        Win {v}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <div className="section-divider" />
 
       {/* TIMELINE */}
@@ -526,6 +692,86 @@ const Index = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* THEN vs NOW */}
+      <section className="py-20 bg-blue-deep">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="text-blue-light text-sm font-semibold uppercase tracking-widest mb-3">
+              Трансформация
+            </div>
+            <h2 className="font-golos text-4xl font-black text-white">
+              Тогда и сейчас
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* THEN */}
+            <div className="bg-white/10 border border-white/20 rounded-2xl p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-3xl">🖥️</span>
+                <div>
+                  <div className="font-golos font-black text-white text-xl">Windows 1985</div>
+                  <div className="text-blue-300 text-xs">Первые шаги</div>
+                </div>
+              </div>
+              <div className="space-y-3">
+                {[
+                  { icon: "HardDrive", label: "Объём", val: "256 КБ RAM" },
+                  { icon: "Monitor", label: "Интерфейс", val: "Монохромный, 640×200" },
+                  { icon: "Users", label: "Пользователи", val: "Тысячи энтузиастов" },
+                  { icon: "Globe", label: "Сеть", val: "Не предусмотрена" },
+                  { icon: "Cpu", label: "Процессор", val: "Intel 8086, 10 МГц" },
+                ].map((row) => (
+                  <div key={row.label} className="flex items-center justify-between py-2 border-b border-white/10">
+                    <div className="flex items-center gap-2 text-blue-200 text-sm">
+                      <Icon name={row.icon} size={14} />
+                      {row.label}
+                    </div>
+                    <span className="text-white text-sm font-medium">{row.val}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* NOW */}
+            <div className="bg-blue-main/30 border border-blue-light/30 rounded-2xl p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-light/10 rounded-full blur-2xl" />
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-3xl">✨</span>
+                <div>
+                  <div className="font-golos font-black text-white text-xl">Windows 11 (2021)</div>
+                  <div className="text-blue-300 text-xs">Облачная эра</div>
+                </div>
+              </div>
+              <div className="space-y-3">
+                {[
+                  { icon: "HardDrive", label: "Объём", val: "4+ ГБ RAM (мин.)" },
+                  { icon: "Monitor", label: "Интерфейс", val: "4K HDR, 3840×2160+" },
+                  { icon: "Users", label: "Пользователи", val: "1,4 млрд устройств" },
+                  { icon: "Globe", label: "Сеть", val: "Встроенный облачный сервис" },
+                  { icon: "Cpu", label: "Процессор", val: "x64/ARM, до 5+ ГГц" },
+                ].map((row) => (
+                  <div key={row.label} className="flex items-center justify-between py-2 border-b border-white/10">
+                    <div className="flex items-center gap-2 text-blue-200 text-sm">
+                      <Icon name={row.icon} size={14} />
+                      {row.label}
+                    </div>
+                    <span className="text-blue-light text-sm font-bold">{row.val}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-blue-300 text-sm">
+              За 36 лет оперативная память выросла в <span className="text-white font-bold">15 000 раз</span>, 
+              а пользовательская база — в <span className="text-white font-bold">миллион раз</span>
+            </p>
           </div>
         </div>
       </section>
