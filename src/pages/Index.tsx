@@ -195,6 +195,16 @@ const Index = () => {
             ))}
           </nav>
 
+          <div className="hidden md:flex items-center gap-2 bg-blue-ice border border-blue-100 rounded-full px-3 py-1.5">
+            <div className="w-6 h-6 rounded-full bg-blue-main flex items-center justify-center flex-shrink-0">
+              <Icon name="User" size={12} className="text-white" />
+            </div>
+            <div className="text-xs leading-tight">
+              <div className="font-semibold text-blue-deep">Зобнин Глеб</div>
+              <div className="text-light-custom">ИС-25-12б</div>
+            </div>
+          </div>
+
           <button
             className="md:hidden text-mid"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -226,51 +236,92 @@ const Index = () => {
         <div className="absolute bottom-20 left-10 w-80 h-80 rounded-full bg-blue-400/10 blur-3xl pointer-events-none" />
 
         <div className="max-w-6xl mx-auto px-6 pt-24 pb-16 w-full">
-          <div className="max-w-3xl animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-white/10 text-blue-light text-xs font-medium px-3 py-1.5 rounded-full mb-6 border border-white/20">
-              <Icon name="BookOpen" size={13} />
-              Индивидуальный проект
-            </div>
-
-            <h1 className="font-golos text-5xl md:text-7xl font-black text-white leading-tight mb-6">
-              История
-              <br />
-              <span className="text-blue-light">Windows</span>
-            </h1>
-
-            <p className="text-blue-100 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl font-light">
-              От графической оболочки MS-DOS до облачной операционной системы —
-              путь длиной в четыре десятилетия, изменивший мир персональных
-              компьютеров.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <button
-                onClick={() => scrollTo("intro")}
-                className="bg-white text-blue-main font-semibold px-7 py-3.5 rounded-xl hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-sm"
-              >
-                Читать проект
-              </button>
-              <button
-                onClick={() => scrollTo("history")}
-                className="border border-white/40 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white/10 transition-all text-sm"
-              >
-                Смотреть хронологию
-              </button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3 gap-6 mt-20 max-w-xl">
-            {[
-              { val: "40+", label: "лет истории" },
-              { val: "11", label: "версий Windows" },
-              { val: "2", label: "главы исследования" },
-            ].map((s) => (
-              <div key={s.val} className="text-center">
-                <div className="font-golos text-3xl font-black text-white">{s.val}</div>
-                <div className="text-blue-200 text-xs mt-1">{s.label}</div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="animate-fade-in">
+              <div className="inline-flex items-center gap-2 bg-white/10 text-blue-light text-xs font-medium px-3 py-1.5 rounded-full mb-6 border border-white/20">
+                <Icon name="GraduationCap" size={13} />
+                Индивидуальный проект · 2024
               </div>
-            ))}
+
+              <h1 className="font-golos text-5xl md:text-6xl font-black text-white leading-tight mb-6">
+                История
+                <br />
+                <span className="text-blue-light">Windows</span>
+              </h1>
+
+              <p className="text-blue-100 text-lg leading-relaxed mb-10 font-light">
+                От графической оболочки MS-DOS до облачной операционной системы —
+                путь длиной в четыре десятилетия, изменивший мир персональных
+                компьютеров.
+              </p>
+
+              <div className="flex flex-wrap gap-4">
+                <button
+                  onClick={() => scrollTo("intro")}
+                  className="bg-white text-blue-main font-semibold px-7 py-3.5 rounded-xl hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-sm"
+                >
+                  Читать проект
+                </button>
+                <button
+                  onClick={() => scrollTo("history")}
+                  className="border border-white/40 text-white font-semibold px-7 py-3.5 rounded-xl hover:bg-white/10 transition-all text-sm"
+                >
+                  Хронология
+                </button>
+              </div>
+
+              <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/10">
+                {[
+                  { val: "40+", label: "лет истории" },
+                  { val: "11", label: "версий" },
+                  { val: "2", label: "главы" },
+                ].map((s) => (
+                  <div key={s.val} className="text-center">
+                    <div className="font-golos text-2xl font-black text-white">{s.val}</div>
+                    <div className="text-blue-300 text-xs mt-1">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Карточка автора */}
+            <div className="flex justify-center md:justify-end">
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 w-full max-w-sm">
+                <div className="flex items-center gap-4 mb-6 pb-6 border-b border-white/15">
+                  <div className="w-16 h-16 rounded-2xl bg-blue-main flex items-center justify-center text-3xl shadow-lg">
+                    👨‍💻
+                  </div>
+                  <div>
+                    <div className="font-golos font-black text-white text-xl">Зобнин Глеб</div>
+                    <div className="text-blue-200 text-sm mt-0.5">Автор проекта</div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  {[
+                    { icon: "BookOpen", label: "Тип работы", val: "Индивидуальный проект" },
+                    { icon: "GraduationCap", label: "Группа", val: "ИС-25-12б" },
+                    { icon: "Layers", label: "Глав", val: "2 главы, 6 параграфов" },
+                    { icon: "Calendar", label: "Год", val: "2024" },
+                  ].map((row) => (
+                    <div key={row.label} className="flex items-center gap-3 py-2 border-b border-white/10 last:border-0">
+                      <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                        <Icon name={row.icon} size={13} className="text-blue-light" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-blue-300 text-xs">{row.label}</div>
+                        <div className="text-white text-sm font-medium truncate">{row.val}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-white/15 text-center">
+                  <div className="text-blue-200 text-xs">Специальность</div>
+                  <div className="text-white font-semibold text-sm mt-1">Информационные системы</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -772,6 +823,79 @@ const Index = () => {
               За 36 лет оперативная память выросла в <span className="text-white font-bold">15 000 раз</span>, 
               а пользовательская база — в <span className="text-white font-bold">миллион раз</span>
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* AUTHOR SECTION */}
+      <section className="py-20 bg-blue-ice">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="text-blue-main text-sm font-semibold uppercase tracking-widest mb-3">
+              Автор
+            </div>
+            <h2 className="font-golos text-4xl font-black text-blue-deep">
+              О проекте
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* Карточка автора */}
+            <div className="md:col-span-1 bg-white rounded-2xl p-8 border border-blue-100 shadow-sm flex flex-col items-center text-center">
+              <div className="w-20 h-20 rounded-2xl bg-blue-main flex items-center justify-center text-4xl mb-4 shadow-lg">
+                👨‍💻
+              </div>
+              <div className="font-golos font-black text-blue-deep text-2xl mb-1">
+                Зобнин Глеб
+              </div>
+              <div className="text-blue-main font-semibold text-sm mb-4">
+                Группа ИС-25-12б
+              </div>
+              <div className="w-12 h-0.5 bg-blue-100 mb-4" />
+              <div className="text-mid text-sm leading-relaxed">
+                Студент специальности «Информационные системы и программирование»
+              </div>
+            </div>
+
+            {/* Метаданные проекта */}
+            <div className="md:col-span-2 bg-white rounded-2xl p-8 border border-blue-100 shadow-sm">
+              <div className="font-golos font-black text-blue-deep text-xl mb-6">
+                Паспорт проекта
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  { icon: "FileText", label: "Вид работы", val: "Индивидуальный проект" },
+                  { icon: "GraduationCap", label: "Учебная группа", val: "ИС-25-12б" },
+                  { icon: "BookOpen", label: "Дисциплина", val: "Информатика / ИКТ" },
+                  { icon: "Calendar", label: "Год выполнения", val: "2024" },
+                  { icon: "Layers", label: "Структура", val: "2 главы, 6 параграфов" },
+                  { icon: "List", label: "Источников", val: "7 источников" },
+                  { icon: "Clock", label: "Охват темы", val: "1985 — 2021 гг." },
+                  { icon: "Target", label: "Объект изучения", val: "ОС Microsoft Windows" },
+                ].map((row) => (
+                  <div key={row.label} className="flex items-center gap-3 p-3 bg-blue-ice rounded-xl">
+                    <div className="w-8 h-8 rounded-lg bg-blue-main flex items-center justify-center flex-shrink-0">
+                      <Icon name={row.icon} size={14} className="text-white" />
+                    </div>
+                    <div>
+                      <div className="text-light-custom text-xs">{row.label}</div>
+                      <div className="text-blue-deep font-semibold text-sm">{row.val}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 p-4 bg-blue-main/5 border border-blue-main/20 rounded-xl">
+                <div className="flex items-start gap-3">
+                  <Icon name="Info" size={16} className="text-blue-main mt-0.5 flex-shrink-0" />
+                  <p className="text-mid text-sm leading-relaxed">
+                    <span className="font-semibold text-blue-deep">Цель проекта:</span> исследовать 
+                    эволюцию операционной системы Windows от графической оболочки до 
+                    современной облачной платформы, выявив ключевые этапы и закономерности её развития.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
