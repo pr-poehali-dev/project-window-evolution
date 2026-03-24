@@ -7,7 +7,7 @@ const NAV_ITEMS = [
   { id: "chapters", label: "Главы" },
   { id: "history", label: "История" },
   { id: "conclusion", label: "Заключение" },
-  { id: "sources", label: "Источники" },
+  { id: "sources", label: "Эволюция UI" },
 ];
 
 const TIMELINE = [
