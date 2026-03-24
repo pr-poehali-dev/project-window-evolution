@@ -240,7 +240,7 @@ const Index = () => {
             <div className="animate-fade-in">
               <div className="inline-flex items-center gap-2 bg-white/10 text-blue-light text-xs font-medium px-3 py-1.5 rounded-full mb-6 border border-white/20">
                 <Icon name="GraduationCap" size={13} />
-                Индивидуальный проект · 2024
+                Индивидуальный проект · 25 марта 2026
               </div>
 
               <h1 className="font-golos text-5xl md:text-6xl font-black text-white leading-tight mb-6">
@@ -302,7 +302,7 @@ const Index = () => {
                     { icon: "BookOpen", label: "Тип работы", val: "Индивидуальный проект" },
                     { icon: "GraduationCap", label: "Группа", val: "ИС-25-12б" },
                     { icon: "Layers", label: "Глав", val: "2 главы, 6 параграфов" },
-                    { icon: "Calendar", label: "Год", val: "2024" },
+                    { icon: "Calendar", label: "Дата", val: "25 марта 2026 г." },
                   ].map((row) => (
                     <div key={row.label} className="flex items-center gap-3 py-2 border-b border-white/10 last:border-0">
                       <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
@@ -867,7 +867,7 @@ const Index = () => {
                   { icon: "FileText", label: "Вид работы", val: "Индивидуальный проект" },
                   { icon: "GraduationCap", label: "Учебная группа", val: "ИС-25-12б" },
                   { icon: "BookOpen", label: "Дисциплина", val: "Информатика / ИКТ" },
-                  { icon: "Calendar", label: "Год выполнения", val: "2024" },
+                  { icon: "Calendar", label: "Дата выполнения", val: "25 марта 2026 г." },
                   { icon: "Layers", label: "Структура", val: "2 главы, 6 параграфов" },
                   { icon: "List", label: "Источников", val: "7 источников" },
                   { icon: "Clock", label: "Охват темы", val: "1985 — 2021 гг." },
@@ -919,7 +919,7 @@ const Index = () => {
               {[
                 {
                   num: 1,
-                  text: "Microsoft Corporation. История Windows. Официальная документация. — Режим доступа: https://microsoft.com/windows (дата обращения: 2024).",
+                  text: "Microsoft Corporation. История Windows. Официальная документация. — Режим доступа: https://microsoft.com/windows (дата обращения: 25.03.2026).",
                 },
                 {
                   num: 2,
@@ -935,11 +935,11 @@ const Index = () => {
                 },
                 {
                   num: 5,
-                  text: "Wikipedia. History of Microsoft Windows [Electronic resource]. — URL: https://en.wikipedia.org/wiki/History_of_Microsoft_Windows (accessed: 2024).",
+                  text: "Wikipedia. History of Microsoft Windows [Electronic resource]. — URL: https://en.wikipedia.org/wiki/History_of_Microsoft_Windows (accessed: 25.03.2026).",
                 },
                 {
                   num: 6,
-                  text: "StatCounter Global Stats. Operating System Market Share Worldwide. — URL: https://gs.statcounter.com (дата обращения: 2024).",
+                  text: "StatCounter Global Stats. Operating System Market Share Worldwide. — URL: https://gs.statcounter.com (дата обращения: 25.03.2026).",
                 },
                 {
                   num: 7,
@@ -975,7 +975,7 @@ const Index = () => {
             Студент группы ИС-25-12б
           </div>
           <div className="mt-6 pt-6 border-t border-white/20 text-blue-300 text-xs">
-            © 2024 — Все материалы предназначены для учебных целей
+            © 25 марта 2026 — Все материалы предназначены для учебных целей
           </div>
         </div>
       </footer>
